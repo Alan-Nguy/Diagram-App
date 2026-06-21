@@ -1,39 +1,17 @@
-import { useAgent } from 'agents/react'
-import { useAgentChat } from '@cloudflare/ai-chat/react'
+import ChatBot from './components/ChatBot'
+import DiagramSpace from './components/DiagramSpace'
 
 function App() {
-  const agent = useAgent({ agent: 'DiagramAgent' })
-  const { messages, sendMessage, status } = useAgentChat({ agent })
-
-  const onSubmitHandler = (e: React.SubmitEvent<HTMLFormElement>) => {
-    e.preventDefault()
-
-    const input = e.currentTarget.elements.namedItem('chat-input') as HTMLInputElement
-
-    sendMessage({ text: input.value })
-    input.value = ''
-  }
-
   return (
-    <>
-      <h1>Chat App here</h1>
-      <hr />
-      <br />
-      <ul>
-        {messages.map((msg) => (
-          <li key={msg.id}>
-            <strong>{msg.role}:</strong>
-            {msg.parts.map((part, i) => (part.type === 'text' ? <span key={i}>{part.text}</span> : null))}
-          </li>
-        ))}
-      </ul>
-      <form onSubmit={onSubmitHandler}>
-        <input name="chat-input" placeholder="Type a message..." />
-        <button type="submit" disabled={status !== 'ready'}>
-          Send
-        </button>
-      </form>
-    </>
+    <main className="grid h-screen [grid-template-areas:'ChatBot_DiagramSpace'] grid-cols-[380px_1fr]">
+      <section className="[grid-area:ChatBot] flex flex-col h-screen overflow-hidden border-r border-gray-200 bg-white">
+        <ChatBot />
+      </section>
+
+      <section className="[grid-area:DiagramSpace] h-screen">
+        <DiagramSpace />
+      </section>
+    </main>
   )
 }
 

@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "@cloudflare/ai-chat": "^0.8.6",
+    "@excalidraw/excalidraw": "^0.18.1",
     "agents": "^0.16.2",
     "ai": "^6.0.208",
     "react": "^19.2.7",
