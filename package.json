@@ -1,16 +1,18 @@
 {
   "name": "diagram_app",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Some diagram app",
+  "license": "MIT",
   "author": {
     "name": "Alan"
   },
-  "private": true,
-  "description": "Some diagram app",
-  "version": "0.0.1",
   "type": "module",
-  "license": "MIT",
   "scripts": {
     "dev": "vite dev",
     "build": "tsc -b && vite build",
+    "types": "wrangler types env.d.ts --include-runtime false",
+    "format": "oxfmt --write .",
     "deploy": "vite build && wrangler deploy",
     "preview": "vite preview"
   },
@@ -30,6 +32,7 @@
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.2",
+    "oxfmt": "^0.55.0",
     "tailwindcss": "^4.3.1",
     "typescript": "^6.0.3",
     "vite": "^8.0.16",
