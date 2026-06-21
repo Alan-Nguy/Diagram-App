@@ -9,14 +9,18 @@
   "type": "module",
   "license": "MIT",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite dev",
     "build": "tsc -b && vite build",
+    "deploy": "vite build && wrangler deploy",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@cloudflare/ai-chat": "^0.8.6",
     "agents": "^0.16.2",
+    "ai": "^6.0.208",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
+    "workers-ai-provider": "^3.2.0",
     "zod": "^4.4.3"
   },
   "devDependencies": {
@@ -28,6 +32,7 @@
     "@vitejs/plugin-react": "^6.0.2",
     "tailwindcss": "^4.3.1",
     "typescript": "^6.0.3",
-    "vite": "^8.0.16"
+    "vite": "^8.0.16",
+    "wrangler": "^4.103.0"
   }
 }

@@ -1,0 +1,22 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "diagram-ai-worker",
+  "main": "src/server.ts",
+  "compatibility_date": "2026-06-20",
+  "compatibility_flags": ["nodejs_compat"],
+  "ai": {
+    "binding": "AI", // available in your Worker code on `env.AI`
+    "remote": true,
+  },
+  "assets": {
+    "directory": "./public",
+    "not_found_handling": "single-page-application",
+  },
+  "durable_objects": {
+    "bindings": [{ "name": "DiagramAgent", "class_name": "DiagramAgent" }],
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["DiagramAgent"] }],
+  "observability": {
+    "enabled": true,
+  },
+}
